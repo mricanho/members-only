@@ -1,6 +1,6 @@
 # Members Only
 
-In this project, I build a fully functional blog in which users who are not logged in can't see who writes which post until they sign up and log in. The scope is to test the knowledge of routes, models, controllers, and views but primarily, the authentication and authorization of Ruby on Rails.
+In this project, I built a fully functional blog in which users who are not logged in can't see who writes which post until they sign up and log in. The scope is to test the knowledge of routes, models, controllers, and views but primarily, the authentication and authorization of Ruby on Rails.
 
 ![screenshot](./code.jpeg)
 
