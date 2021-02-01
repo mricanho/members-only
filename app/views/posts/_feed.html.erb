@@ -1,9 +1,7 @@
-<div class="column">
-  <p class="control is-1">
+<div class="column is-mobile">
+  <p class="control is-1 mb-2">
     <%= link_to 'If you want to create a new post, click here', new_post_path, class: "button is-dark" %>
   </p>
-
-  
   <% @posts.each do | post | %>
     <div class="box">
       <article class="media">
