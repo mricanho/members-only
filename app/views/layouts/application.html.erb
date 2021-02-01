@@ -7,10 +7,67 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <% if flash[:notice] %>
+  		<div class="notification is-dark">
+        <button class="delete"></button>
+  			<p class="notice"><%= notice %></p>
+  		</div>
+  	<% end %>
+  	<% if flash[:alert] %>
+  		<div class="notification is-danger global-notification">
+        <button class="delete"></button>
+  			<p class="alert"><%= alert %></p>
+  		</div>
+  	<% end %>
+    <nav class="navbar is-dark">
+  		<div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-4">Members Only</h1>
+        <% end %>
+  	 </div>
+     <div id="navbarExample" class="navbar-menu">
+				<div class="navbar-end">
+          <div class="navbar-item">
+					<div class="field is-grouped is-mobile">
+						<p class="control">
+							<%= link_to 'New Post', new_post_path, class: "button is-success is-inverted" %>
+						</p>
+            <% if user_signed_in? %>
+              <p class="control">
+                <%= link_to current_user.name, edit_user_registration_path, class: "button is-dark" %>
+              </p>
+              <p>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-dark" %>
+              </p>
+            <% else %>
+            <p class="control">
+              <%= link_to 'Sign In', new_user_session_path, class: "button is-dark" %>
+            </p>
+						<p class="control">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "button is-dark" %>
+            </p>
+            <% end %>
+            </div>
+					</div>
+				</div>
+			</div>
+    </nav>
     <%= yield %>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', () => {
+        (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+          const $notification = $delete.parentNode;
+
+          $delete.addEventListener('click', () => {
+            $notification.parentNode.removeChild($notification);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
