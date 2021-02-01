@@ -15,7 +15,8 @@
  */
 @import "bulma";
 
-.navbar-brand .title {
+.navbar-brand .title,
+.control .button {
   color: rgb(71, 219, 138);
 }
 
