@@ -13,4 +13,12 @@
  *= require_tree .
  *= require_self
  */
-@import "bulma"
+@import "bulma";
+
+.navbar-brand .title {
+  color: rgb(71, 219, 138);
+}
+
+.notification:not(:last-child) {
+  margin-bottom: 0;
+}
